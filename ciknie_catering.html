@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciknie Catering Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --rose:#C94B2C;--rose2:#E8623F;--rose-light:#FDF0EB;--rose-pale:#FEF8F5;
+  --cream:#FFFBF7;--gold:#B8860B;--gold2:#D4A017;--gold-light:#FDF7E6;
+  --green:#2D6A4F;--green-light:#E8F5EE;
+  --text:#1A1208;--text2:#5C4A38;--text3:#9C8070;
+  --border:#EAD9CC;--card:#FFFFFF;
+  --wa:#25D366;--wa2:#128C7E;
+  --shadow:0 2px 20px rgba(180,100,60,0.10);
+  --shadow2:0 8px 40px rgba(180,100,60,0.15);
+}
+html{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--cream)}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,251,247,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 4%}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:38px;height:38px;border-radius:50%;background:var(--rose-light);border:2px solid var(--rose);display:flex;align-items:center;justify-content:center;font-size:17px}
+.brand-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--rose);font-weight:600}
+.brand-sub{font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-link{padding:7px 13px;border-radius:8px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;transition:all .2s;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-link:hover{background:var(--rose-light);color:var(--rose)}
+.nav-link.active{background:var(--rose);color:#fff}
+.nav-wa{padding:8px 16px;border-radius:8px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .2s;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-wa:hover{background:var(--wa2)}
+.nav-wa svg{width:15px;height:15px;fill:#fff}
+
+/* SECTIONS */
+.section{display:none;min-height:calc(100vh - 62px);padding:36px 4%}
+.section.active{display:block}
+.container{max-width:900px;margin:0 auto}
+.page-header{text-align:center;margin-bottom:36px}
+.page-header h1{font-family:'Playfair Display',serif;font-size:34px;color:var(--rose);margin-bottom:6px}
+.page-header p{color:var(--text3);font-size:14px}
+.divider{width:55px;height:3px;background:var(--rose);border-radius:2px;margin:10px auto}
+
+/* HERO */
+#home{padding:0}
+.hero{background:linear-gradient(155deg,#FDF0EB 0%,#FEF8F5 45%,#FFF7EE 100%);padding:56px 4% 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:rgba(201,75,44,0.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(184,134,11,0.06)}
+.hero-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:30px;padding:5px 14px;font-size:12px;color:var(--text2);margin-bottom:18px;box-shadow:var(--shadow)}
+.hero h1{font-family:'Playfair Display',serif;font-size:44px;line-height:1.15;color:var(--rose);margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-size:15px;color:var(--text2);margin-bottom:28px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-hero-main{padding:13px 26px;background:var(--rose);color:#fff;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;transition:all .2s;border:none;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-hero-main:hover{background:var(--rose2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,75,44,0.3)}
+.btn-hero-wa{padding:13px 26px;background:var(--wa);color:#fff;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;transition:all .2s;border:none;display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-hero-wa:hover{background:var(--wa2);transform:translateY(-1px)}
+.btn-hero-wa svg{width:18px;height:18px;fill:#fff}
+
+/* TRUST BAR */
+.trust-bar{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 4%}
+.trust-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trust-item{text-align:center}
+.trust-icon{font-size:22px;margin-bottom:5px}
+.trust-label{font-size:12px;font-weight:600;color:var(--text)}
+.trust-sub{font-size:11px;color:var(--text3)}
+
+/* HOME PACKAGES */
+.home-packages{padding:48px 4%}
+.home-pkg-inner{max-width:900px;margin:0 auto}
+.section-heading{text-align:center;margin-bottom:32px}
+.section-heading h2{font-family:'Playfair Display',serif;font-size:30px;color:var(--text);margin-bottom:6px}
+.section-heading p{color:var(--text3);font-size:13px}
+
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+.pkg-card{background:var(--card);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;transition:all .25s;position:relative;cursor:pointer}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:var(--shadow2);border-color:var(--rose)}
+.pkg-card.popular{border-color:var(--gold);box-shadow:0 4px 24px rgba(184,134,11,0.12)}
+.pkg-ribbon{position:absolute;top:14px;right:-22px;background:var(--gold);color:#fff;font-size:10px;font-weight:700;padding:4px 30px;transform:rotate(40deg);letter-spacing:1px}
+.pkg-header{padding:22px 18px 16px;background:var(--rose-pale);text-align:center;border-bottom:1px solid var(--border)}
+.pkg-icon{font-size:30px;margin-bottom:8px}
+.pkg-name{font-family:'Playfair Display',serif;font-size:19px;color:var(--rose);font-weight:600}
+.pkg-size{font-size:12px;color:var(--text3);margin-top:3px;font-weight:500;letter-spacing:.5px}
+.pkg-body{padding:18px}
+.pkg-price-row{display:flex;align-items:baseline;gap:5px;margin-bottom:4px}
+.pkg-price{font-size:30px;font-weight:700;color:var(--rose);font-family:'Playfair Display',serif}
+.pkg-price-unit{font-size:13px;color:var(--text3)}
+.pkg-price-alt{font-size:12px;color:var(--gold);background:var(--gold-light);padding:3px 10px;border-radius:20px;margin-bottom:14px;display:inline-block}
+.pkg-menu-list{list-style:none;font-size:13px;color:var(--text2)}
+.pkg-menu-list li{padding:5px 0;border-bottom:1px dashed var(--border);display:flex;align-items:flex-start;gap:7px}
+.pkg-menu-list li:last-child{border:none}
+.pkg-menu-list li::before{content:'✦';color:var(--rose);font-size:9px;flex-shrink:0;margin-top:3px}
+.pkg-btn{width:100%;margin-top:14px;padding:11px;background:var(--rose);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.pkg-btn:hover{background:var(--rose2)}
+.popular .pkg-btn{background:var(--gold)}
+.popular .pkg-btn:hover{background:var(--gold2)}
+
+/* INCLUDED BOX */
+.included-box{background:var(--green-light);border:1px solid #B7DFC9;border-radius:12px;padding:18px;margin-bottom:18px}
+.included-box h4{font-size:14px;font-weight:600;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.included-list{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.included-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--green)}
+.included-item::before{content:'✓';font-weight:700;flex-shrink:0}
+.not-included-box{background:#FCEBEB;border:1px solid #F7C1C1;border-radius:12px;padding:14px}
+.not-included-box p{font-size:13px;color:#A32D2D;font-weight:500}
+
+/* MENU PAGE */
+.menu-tabs{display:flex;gap:8px;margin-bottom:26px;flex-wrap:wrap;justify-content:center}
+.menu-tab{padding:9px 18px;border-radius:30px;border:1.5px solid var(--border);background:#fff;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text2)}
+.menu-tab.active,.menu-tab:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+.menu-panel{display:none}
+.menu-panel.active{display:block}
+.menu-section{background:var(--card);border-radius:14px;border:1px solid var(--border);margin-bottom:18px;overflow:hidden;box-shadow:var(--shadow)}
+.menu-section-header{padding:15px 20px;background:var(--rose-pale);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.menu-section-header h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--rose)}
+.menu-section-header span{font-size:20px}
+.menu-items{padding:4px 0}
+.menu-item{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-bottom:1px solid #FAF0EA;transition:background .15s}
+.menu-item:last-child{border:none}
+.menu-item:hover{background:var(--rose-pale)}
+.menu-item-left{display:flex;align-items:flex-start;gap:10px}
+.menu-dot{width:7px;height:7px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:5px}
+.menu-item-name{font-size:14px;font-weight:500;color:var(--text)}
+.menu-item-desc{font-size:12px;color:var(--text3);margin-top:1px}
+.menu-item-tag{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;white-space:nowrap;flex-shrink:0}
+.tag-included{background:var(--green-light);color:var(--green)}
+.tag-choice{background:var(--rose-light);color:var(--rose)}
+.tag-addon{background:var(--gold-light);color:var(--gold)}
+
+/* HARGA PAGE */
+.price-table-wrap{background:var(--card);border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)}
+.price-table{width:100%;border-collapse:collapse}
+.price-table th{background:var(--rose);color:#fff;padding:12px 16px;text-align:left;font-size:13px;font-weight:600}
+.price-table td{padding:13px 16px;font-size:13px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.price-table tr:last-child td{border:none}
+.price-table tr:nth-child(even) td{background:#FFFAF7}
+.price-val{font-weight:700;color:var(--rose);font-size:15px}
+.price-alt{font-size:12px;color:var(--gold);display:block;margin-top:2px}
+.size-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.size-s{background:#FDF0EB;color:var(--rose)}
+.size-m{background:#FDF7E6;color:var(--gold)}
+.size-l{background:#E8F5EE;color:var(--green)}
+.addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.addon-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+.addon-card h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.addon-card p{font-size:12px;color:var(--text3);line-height:1.6;margin-bottom:10px}
+.addon-price-tag{font-size:22px;font-weight:700;color:var(--rose);font-family:'Playfair Display',serif}
+
+/* BOOKING */
+.booking-wrap{display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start}
+.form-card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:26px;box-shadow:var(--shadow)}
+.form-card h2{font-family:'Playfair Display',serif;font-size:21px;color:var(--text);margin-bottom:18px}
+.form-step{margin-bottom:22px}
+.step-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.step-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.form-group label{font-size:12px;font-weight:600;color:var(--text2)}
+.form-group input,.form-group select,.form-group textarea{padding:10px 13px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--text);outline:none;transition:border .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(201,75,44,0.07)}
+.form-group textarea{resize:none;height:76px}
+.pkg-select-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:12px}
+.pkg-sel-btn{padding:11px 7px;border:1.5px solid var(--border);border-radius:10px;background:#fff;cursor:pointer;text-align:center;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.pkg-sel-btn:hover,.pkg-sel-btn.active{border-color:var(--rose);background:var(--rose-light)}
+.pkg-sel-btn .ps-name{font-size:11px;font-weight:600;color:var(--text)}
+.pkg-sel-btn .ps-size{font-size:10px;color:var(--text3);margin:2px 0}
+.pkg-sel-btn .ps-price{font-size:15px;font-weight:700;color:var(--rose);font-family:'Playfair Display',serif}
+.nasi-btns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.nasi-btn{padding:10px;border:1.5px solid var(--border);border-radius:9px;background:#fff;cursor:pointer;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+.nasi-btn.active,.nasi-btn:hover{border-color:var(--rose);background:var(--rose-light)}
+.nasi-btn .nb-name{font-size:13px;font-weight:600;color:var(--text)}
+.nasi-btn .nb-price{font-size:11px;color:var(--text3)}
+.addon-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;background:var(--rose-pale);border-radius:10px;margin-bottom:8px;border:1px solid var(--border)}
+.at-info .at-name{font-size:13px;font-weight:600;color:var(--text)}
+.at-info .at-desc{font-size:11px;color:var(--text3)}
+.at-right{display:flex;align-items:center;gap:10px}
+.at-price{font-size:13px;font-weight:700;color:var(--rose)}
+.toggle-sw{width:42px;height:23px;border-radius:12px;background:var(--border);border:none;cursor:pointer;position:relative;transition:background .25s;flex-shrink:0}
+.toggle-sw.on{background:var(--rose)}
+.toggle-sw::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:#fff;transition:transform .25s;box-shadow:0 1px 3px rgba(0,0,0,0.15)}
+.toggle-sw.on::after{transform:translateX(19px)}
+
+/* SUMMARY */
+.summary-card{background:var(--card);border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow);position:sticky;top:74px}
+.summary-header{background:var(--rose);padding:15px 20px;color:#fff}
+.summary-header h3{font-family:'Playfair Display',serif;font-size:17px}
+.summary-header p{font-size:12px;opacity:.85;margin-top:1px}
+.summary-body{padding:18px}
+.summary-line{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid var(--border)}
+.summary-line:last-of-type{border:none}
+.summary-line .sl-label{color:var(--text3)}
+.summary-line .sl-val{font-weight:500;color:var(--text);text-align:right;max-width:60%}
+.summary-total{border-top:2px solid var(--rose);padding-top:12px;margin-top:4px;display:flex;justify-content:space-between;align-items:baseline}
+.summary-total .st-label{font-size:13px;font-weight:600;color:var(--text)}
+.summary-total .st-val{font-size:22px;font-weight:700;color:var(--rose);font-family:'Playfair Display',serif}
+.summary-note{font-size:11px;color:var(--text2);margin-top:10px;line-height:1.6;background:var(--gold-light);border-radius:8px;padding:10px;border:1px solid #EDD5A3}
+.btn-submit{width:100%;padding:13px;background:var(--rose);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:12px;transition:all .2s}
+.btn-submit:hover{background:var(--rose2);transform:translateY(-1px)}
+.btn-wa-book{width:100%;padding:12px;background:var(--wa);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:7px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:7px}
+.btn-wa-book:hover{background:var(--wa2)}
+.btn-wa-book svg{width:16px;height:16px;fill:#fff}
+
+/* SUCCESS */
+.success-page{text-align:center;padding:40px 20px;max-width:500px;margin:0 auto}
+.success-icon{width:76px;height:76px;border-radius:50%;background:var(--rose-light);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 18px;border:3px solid var(--rose)}
+.success-title{font-family:'Playfair Display',serif;font-size:26px;color:var(--rose);margin-bottom:7px}
+.success-sub{font-size:14px;color:var(--text3);margin-bottom:24px;line-height:1.7}
+.ref-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:left;margin-bottom:18px;box-shadow:var(--shadow)}
+.ref-id{font-size:24px;font-weight:700;color:var(--rose);font-family:'Playfair Display',serif;letter-spacing:2px;margin-bottom:14px}
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ref-item .ri-label{font-size:11px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
+.ref-item .ri-val{font-size:13px;font-weight:500;color:var(--text)}
+.success-actions{display:flex;gap:9px;flex-direction:column}
+.btn-wa-confirm{padding:13px;background:var(--wa);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:9px;width:100%}
+.btn-wa-confirm:hover{background:var(--wa2)}
+.btn-wa-confirm svg{width:19px;height:19px;fill:#fff}
+.btn-new{padding:11px;background:transparent;color:var(--rose);border:1.5px solid var(--rose);border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;width:100%}
+.btn-new:hover{background:var(--rose-light)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
+.contact-card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:22px;box-shadow:var(--shadow);text-align:center;transition:all .2s}
+.contact-card:hover{transform:translateY(-2px);box-shadow:var(--shadow2)}
+.contact-icon{width:52px;height:52px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.contact-card h3{font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px}
+.contact-card p{font-size:12px;color:var(--text3);margin-bottom:14px;line-height:1.5}
+.contact-btn{padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:6px}
+.contact-btn svg{width:15px;height:15px;fill:currentColor}
+.btn-wa-style{background:var(--wa);color:#fff}
+.btn-wa-style:hover{background:var(--wa2)}
+.btn-call{background:var(--rose);color:#fff}
+.btn-call:hover{background:var(--rose2)}
+.contact-info-box{background:var(--rose-pale);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:18px}
+.contact-info-box h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--rose);margin-bottom:14px;text-align:center}
+.cib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cib-item{text-align:center;padding:13px 9px;background:#fff;border-radius:10px;border:1px solid var(--border)}
+.cib-icon{font-size:20px;margin-bottom:5px}
+.cib-label{font-size:11px;color:var(--text3)}
+.cib-val{font-size:13px;font-weight:600;color:var(--text);margin-top:2px}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:9px;overflow:hidden;box-shadow:var(--shadow)}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:14px;color:var(--text);user-select:none}
+.faq-q:hover{background:var(--rose-pale)}
+.faq-arrow{transition:transform .25s;color:var(--rose);font-size:18px;font-weight:300}
+.faq-item.open .faq-arrow{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 14px;font-size:13px;color:var(--text2);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* WA QUICK MSGS */
+.wa-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.wa-quick-btn{width:100%;padding:11px;background:var(--rose-pale);color:var(--rose);border:1px solid var(--border);border-radius:9px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;text-align:left;transition:all .2s}
+.wa-quick-btn:hover{background:var(--rose-light);border-color:var(--rose)}
+
+/* FLOATING WA */
+.float-wa{position:fixed;bottom:22px;right:22px;z-index:999;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);cursor:pointer;transition:all .2s;border:none;animation:pulse-wa 2.5s infinite}
+.float-wa:hover{background:var(--wa2);transform:scale(1.1)}
+.float-wa svg{width:26px;height:26px;fill:#fff}
+@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.35)}50%{box-shadow:0 4px 30px rgba(37,211,102,0.65)}}
+
+@media(max-width:768px){
+  .pkg-grid,.booking-wrap,.contact-grid,.addon-grid{grid-template-columns:1fr}
+  .trust-inner{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:30px}
+  .cib-grid{grid-template-columns:1fr 1fr}
+  .form-row,.included-list{grid-template-columns:1fr}
+  .nav-links .nav-link:not(.active){display:none}
+  .summary-card{position:static}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20ingin%20bertanya%20tentang%20katering." target="_blank">
+  <button class="float-wa" title="WhatsApp Ciknie">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">🍽</div>
+      <div>
+        <div class="brand-name">Ciknie Catering</div>
+        <div class="brand-sub">013-9216091</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showSection('home')">Utama</button>
+      <button class="nav-link" onclick="showSection('menu')">Menu</button>
+      <button class="nav-link" onclick="showSection('harga')">Harga & Pakej</button>
+      <button class="nav-link" onclick="showSection('tempahan')">Tempahan</button>
+      <button class="nav-link" onclick="showSection('hubungi')">Hubungi</button>
+      <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20ingin%20bertanya%20tentang%20katering." target="_blank">
+        <button class="nav-wa">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </button>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<section id="home" class="section active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">🌟 Ciknie Catering — 013-9216091</div>
+      <h1>Masakan <em>Sedap</em>, Majlis Meriah</h1>
+      <p>Perkhidmatan katering profesional untuk kenduri kahwin, aqiqah, majlis korporat dan pelbagai perayaan. Dari 100 pek hingga 1000 pek.</p>
+      <div class="hero-btns">
+        <button class="btn-hero-main" onclick="showSection('tempahan')">📋 Buat Tempahan</button>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20nak%20tanya%20pasal%20katering." target="_blank">
+          <button class="btn-hero-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Tanya via WhatsApp
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><div class="trust-icon">🍱</div><div class="trust-label">100–1000 Pek</div><div class="trust-sub">Semua saiz majlis</div></div>
+      <div class="trust-item"><div class="trust-icon">👨‍🍳</div><div class="trust-label">Penjaga Percuma</div><div class="trust-sub">300 pek ke atas</div></div>
+      <div class="trust-item"><div class="trust-icon">🎁</div><div class="trust-label">Air + Pinggan Percuma</div><div class="trust-sub">Semua pakej</div></div>
+      <div class="trust-item"><div class="trust-icon">📋</div><div class="trust-label">Menu Boleh Request</div><div class="trust-sub">Ikut citarasa anda</div></div>
+    </div>
+  </div>
+
+  <div class="home-packages">
+    <div class="home-pkg-inner">
+      <div class="section-heading">
+        <h2>Pakej Kami</h2>
+        <div class="divider"></div>
+        <p>3 pakej mengikut saiz majlis anda</p>
+      </div>
+
+      <div class="pkg-grid">
+
+        <!-- PAKEJ KECIL: 100-200 PACK -->
+        <div class="pkg-card">
+          <div class="pkg-header">
+            <div class="pkg-icon">🍽</div>
+            <div class="pkg-name">100 – 200 Pack</div>
+            <div class="pkg-size">PAKEJ KECIL</div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-price-row"><span class="pkg-price">RM14</span><span class="pkg-price-unit">/pack</span></div>
+            <div class="pkg-price-alt">Nasi Minyak: RM16/pack</div>
+            <ul class="pkg-menu-list">
+              <li>Nasi Putih</li>
+              <li>Gulai Kawah</li>
+              <li>Ayam Pedas</li>
+              <li>Acar</li>
+              <li>Ikan Kering</li>
+              <li>Tembikai</li>
+              <li>Sambal</li>
+              <li>Kue atau Bubur</li>
+              <li><strong>Pilihan Nasi:</strong> Nasi Hujan Panas / Nasi Putih / Masi Minyak</li>
+              <li><strong>Pilihan Gulai:</strong> Gulai Kawah atau Gulai Darat</li>
+              <li><strong>Pilihan Ayam:</strong> Ayam Pedas / Ayam Padprik / Ayam Goreng</li>
+            </ul>
+            <button class="pkg-btn" onclick="selectAndGo('small')">Pilih Pakej Ini →</button>
+          </div>
+        </div>
+
+        <!-- PAKEJ SEDERHANA: 300-500 PACK -->
+        <div class="pkg-card popular">
+          <div class="pkg-ribbon">POPULAR</div>
+          <div class="pkg-header">
+            <div class="pkg-icon">🎊</div>
+            <div class="pkg-name">300 – 500 Pack</div>
+            <div class="pkg-size">PAKEJ SEDERHANA</div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-price-row"><span class="pkg-price">RM13</span><span class="pkg-price-unit">/pack</span></div>
+            <div class="pkg-price-alt">Nasi Minyak: RM15/pack</div>
+            <ul class="pkg-menu-list">
+              <li>Nasi Hujan Panah Gulai Kawah</li>
+              <li>Ayam Pedas</li>
+              <li>Acar</li>
+              <li>Ikan Kering</li>
+              <li>Tembikai</li>
+              <li>Sambal</li>
+              <li>Kue atau Bubur</li>
+              <li><strong>Pilihan Nasi:</strong> Nasi Hujan Panas / Nasi Putih / Masi Minyak</li>
+              <li><strong>Pilihan Gulai:</strong> Gulai Kawah atau Gulai Darat</li>
+              <li><strong>Pilihan Ayam:</strong> Ayam Pedas / Ayam Padprik / Ayam Goreng</li>
+            </ul>
+            <button class="pkg-btn" onclick="selectAndGo('medium')">Pilih Pakej Ini →</button>
+          </div>
+        </div>
+
+        <!-- PAKEJ BESAR: 600-1000 -->
+        <div class="pkg-card">
+          <div class="pkg-header">
+            <div class="pkg-icon">🏆</div>
+            <div class="pkg-name">600 – 1000</div>
+            <div class="pkg-size">PAKEJ BESAR</div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-price-row"><span class="pkg-price">RM12</span><span class="pkg-price-unit">/pack</span></div>
+            <div class="pkg-price-alt">Nasi Minyak: RM14/pack</div>
+            <ul class="pkg-menu-list">
+              <li>Nasi Hujan Panah Gulai Kawah</li>
+              <li>Ayam Pedas</li>
+              <li>Acar</li>
+              <li>Ikan Kering</li>
+              <li>Tembikai</li>
+              <li>Sambal</li>
+              <li>Kue atau Bubur</li>
+              <li>Pilihan Gulai</li>
+              <li><strong>Pilihan Nasi:</strong> Nasi Hujan Panas / Nasi Putih / Masi Minyak</li>
+              <li><strong>Pilihan Ayam:</strong> Gulai Kawah atau Gulai Darat</li>
+              <li><strong>Pilihan Ayam:</strong> Ayam Pedas / Ayam Padprik / Ayam Goreng</li>
+              <li>Air 3 Balng Besar</li>
+            </ul>
+            <button class="pkg-btn" onclick="selectAndGo('large')">Pilih Pakej Ini →</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TERMASUK -->
+      <div class="included-box">
+        <h4>✅ Semua Package Termasuk Percuma:</h4>
+        <div class="included-list">
+          <div class="included-item">Air 2 Balang</div>
+          <div class="included-item">Tissue</div>
+          <div class="included-item">Plastic Sampah</div>
+          <div class="included-item">Pinggan Mangkuk</div>
+          <div class="included-item">Menu Tambahan Bole Request</div>
+          <div class="included-item">Package 300 Pack Keatas — Penjaga Catering</div>
+        </div>
+      </div>
+
+      <!-- MAKANAN BERADAP ADD ON -->
+      <div style="background:var(--gold-light);border:1.5px solid #EDD5A3;border-radius:12px;padding:16px;margin-bottom:16px">
+        <p style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:8px">👑 Add On Makanan Beradap — RM400</p>
+        <div style="font-size:13px;color:var(--text2);line-height:1.9">
+          • Udang 1 Set<br>
+          • Ikan 1 Ekor<br>
+          • Buah-Buahan 1 Set<br>
+          • Air 3 Balng Besar
+        </div>
+      </div>
+
+      <!-- TIDAK TERMASUK -->
+      <div class="not-included-box">
+        <p>❌ Harga Tidak Termasuk Khemah</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu" class="section">
+  <div class="container">
+    <div class="page-header">
+      <h1>Menu Kami</h1>
+      <p>Semua menu ikut senarai asal Ciknie Catering</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="showMenuTab('pakej1',this)">🍽 100–200 Pack</button>
+      <button class="menu-tab" onclick="showMenuTab('pakej2',this)">🎊 300–500 Pack</button>
+      <button class="menu-tab" onclick="showMenuTab('pakej3',this)">🏆 600–1000</button>
+      <button class="menu-tab" onclick="showMenuTab('beradap',this)">👑 Makanan Beradap</button>
+      <button class="menu-tab" onclick="showMenuTab('percuma',this)">🎁 Termasuk Percuma</button>
+    </div>
+
+    <!-- 100–200 PACK -->
+    <div class="menu-panel active" id="panel-pakej1">
+      <div style="background:var(--rose-pale);border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--rose);font-weight:600">100 – 200 Pack</div>
+          <div style="font-size:13px;color:var(--text3);margin-top:2px">RM 14/Pack &nbsp;|&nbsp; Nasi Minyak: RM16/Pack</div>
+        </div>
+        <button class="btn-hero-main" onclick="selectAndGo('small')" style="font-size:13px;padding:10px 20px">Tempah Pakej Ini</button>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🍚</span><h3>Menu Utama</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Putih</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Gulai Kawah</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Pedas</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Acar</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ikan Kering</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Tembikai</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Sambal</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Kue atau Bubur</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🔄</span><h3>Pilihan Nasi</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Hujan Panas</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Putih</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Masi Minyak</div><div class="menu-item-desc">+RM2/pack</div></div></div><span class="menu-item-tag tag-addon">+RM2/pack</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🥘</span><h3>Pilihan Gulai</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Gulai Kawah</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Gulai Darat</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🍗</span><h3>Pilihan Ayam</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Pedas</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Padprik</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Goreng</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 300–500 PACK -->
+    <div class="menu-panel" id="panel-pakej2">
+      <div style="background:var(--gold-light);border:1.5px solid #EDD5A3;border-radius:12px;padding:16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);font-weight:600">300 – 500 Pack</div>
+          <div style="font-size:13px;color:var(--text3);margin-top:2px">RM 13/Pack &nbsp;|&nbsp; Nasi Minyak: RM15/Pack</div>
+        </div>
+        <button class="pkg-btn" onclick="selectAndGo('medium')" style="width:auto;padding:10px 20px;font-size:13px;background:var(--gold)">Tempah Pakej Ini</button>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🍽</span><h3>Menu Utama</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Hujan Panah Gulai Kawah</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Pedas</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Acar</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ikan Kering</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Tembikai</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Sambal</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Kue atau Bubur</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🔄</span><h3>Pilihan Nasi</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Hujan Panas</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Putih</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Masi Minyak</div><div class="menu-item-desc">+RM2/pack</div></div></div><span class="menu-item-tag tag-addon">+RM2/pack</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🥘</span><h3>Pilihan Gulai</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Gulai Kawah</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Gulai Darat</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🍗</span><h3>Pilihan Ayam</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Pedas</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Padprik</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Goreng</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 600–1000 -->
+    <div class="menu-panel" id="panel-pakej3">
+      <div style="background:var(--green-light);border:1.5px solid #B7DFC9;border-radius:12px;padding:16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--green);font-weight:600">600 – 1000</div>
+          <div style="font-size:13px;color:var(--text3);margin-top:2px">RM 12/Pack &nbsp;|&nbsp; Nasi Minyak: RM14/Pack</div>
+        </div>
+        <button class="pkg-btn" onclick="selectAndGo('large')" style="width:auto;padding:10px 20px;font-size:13px;background:var(--green)">Tempah Pakej Ini</button>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🍽</span><h3>Menu Utama</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Hujan Panah Gulai Kawah</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Pedas</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Acar</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ikan Kering</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Tembikai</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Sambal</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Kue atau Bubur</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Pilihan Gulai</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Air 3 Balng Besar</div></div></div><span class="menu-item-tag tag-included">Termasuk</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🥘</span><h3>Pilihan Gulai</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Gulai Kawah atau Gulai Darat</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🔄</span><h3>Pilihan Nasi</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Hujan Panas</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Nasi Putih</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Masi Minyak</div><div class="menu-item-desc">+RM2/pack</div></div></div><span class="menu-item-tag tag-addon">+RM2/pack</span></div>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🍗</span><h3>Pilihan Ayam</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Pedas</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Padprik</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ayam Goreng</div></div></div><span class="menu-item-tag tag-choice">Pilihan</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAKANAN BERADAP -->
+    <div class="menu-panel" id="panel-beradap">
+      <div style="background:var(--gold-light);border:1.5px solid #EDD5A3;border-radius:12px;padding:16px;margin-bottom:16px;text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);font-weight:700">👑 Add On Makanan Beradap</div>
+        <div style="font-size:28px;font-weight:700;color:var(--rose);font-family:'Playfair Display',serif;margin-top:6px">RM400</div>
+        <div style="font-size:12px;color:var(--text3);margin-top:4px">Add on — tidak mengira bilangan pack</div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><span>👑</span><h3>Makanan Beradap — RM400</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Udang 1 Set</div></div></div><span class="menu-item-tag tag-addon">Termasuk dlm RM400</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Ikan 1 Ekor</div></div></div><span class="menu-item-tag tag-addon">Termasuk dlm RM400</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Buah-Buahan 1 Set</div></div></div><span class="menu-item-tag tag-addon">Termasuk dlm RM400</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Air 3 Balng Besar</div></div></div><span class="menu-item-tag tag-addon">Termasuk dlm RM400</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMASUK PERCUMA -->
+    <div class="menu-panel" id="panel-percuma">
+      <div class="menu-section">
+        <div class="menu-section-header"><span>🎁</span><h3>Semua Package Termasuk Percuma</h3></div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Air 2 Balang</div></div></div><span class="menu-item-tag tag-included">Percuma</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Tissue</div></div></div><span class="menu-item-tag tag-included">Percuma</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Plastic Sampah</div></div></div><span class="menu-item-tag tag-included">Percuma</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Pinggan Mangkuk</div></div></div><span class="menu-item-tag tag-included">Percuma</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Menu Tambahan Bole Request</div></div></div><span class="menu-item-tag tag-included">Percuma</span></div>
+          <div class="menu-item"><div class="menu-item-left"><div class="menu-dot"></div><div><div class="menu-item-name">Penjaga Catering (Package 300 Pack Keatas)</div></div></div><span class="menu-item-tag tag-included">Percuma</span></div>
+        </div>
+      </div>
+      <div class="not-included-box" style="margin-top:12px">
+        <p>❌ Harga Tidak Termasuk Khemah</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== HARGA ===== -->
+<section id="harga" class="section">
+  <div class="container">
+    <div class="page-header">
+      <h1>Harga & Pakej</h1>
+      <p>Harga ikut menu asal Ciknie Catering</p>
+    </div>
+
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr><th>Pakej</th><th>Bilangan Pack</th><th>Harga Standard</th><th>Nasi Minyak</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pakej Kecil</strong></td>
+            <td><span class="size-badge size-s">100 – 200 Pack</span></td>
+            <td><span class="price-val">RM 14/Pack</span></td>
+            <td><span class="price-val">RM 16/Pack</span></td>
+          </tr>
+          <tr>
+            <td><strong>Pakej Sederhana ⭐</strong></td>
+            <td><span class="size-badge size-m">300 – 500 Pack</span></td>
+            <td><span class="price-val">RM 13/Pack</span></td>
+            <td><span class="price-val">RM 15/Pack</span></td>
+          </tr>
+          <tr>
+            <td><strong>Pakej Besar</strong></td>
+            <td><span class="size-badge size-l">600 – 1000</span></td>
+            <td><span class="price-val">RM 12/Pack</span></td>
+            <td><span class="price-val">RM 14/Pack</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-heading" style="margin-top:32px"><h2>Add On</h2><div class="divider"></div></div>
+    <div class="addon-grid">
+      <div class="addon-card">
+        <h4>👑 Makanan Beradap</h4>
+        <p>Udang 1 Set + Ikan 1 Ekor + Buah-Buahan 1 Set + Air 3 Balng Besar</p>
+        <div class="addon-price-tag">RM400</div>
+      </div>
+      <div class="addon-card">
+        <h4>📋 Menu Tambahan</h4>
+        <p>Menu Tambahan Bole Request — boleh minta hidangan khas mengikut keperluan majlis anda.</p>
+        <div class="addon-price-tag">Request</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:4px">Hubungi untuk harga</div>
+      </div>
+    </div>
+
+    <div class="included-box" style="margin-bottom:14px">
+      <h4>✅ Semua Package Termasuk Percuma:</h4>
+      <div class="included-list">
+        <div class="included-item">Air 2 Balang</div>
+        <div class="included-item">Tissue</div>
+        <div class="included-item">Plastic Sampah</div>
+        <div class="included-item">Pinggan Mangkuk</div>
+        <div class="included-item">Menu Tambahan Bole Request</div>
+        <div class="included-item">Package 300 Pack Keatas — Penjaga Catering</div>
+      </div>
+    </div>
+
+    <div class="not-included-box" style="margin-bottom:28px">
+      <p>❌ Harga Tidak Termasuk Khemah</p>
+    </div>
+
+    <div style="text-align:center;padding:28px;background:var(--rose-pale);border-radius:14px;border:1px solid var(--border)">
+      <p style="font-family:'Playfair Display',serif;font-size:20px;color:var(--rose);margin-bottom:7px">Nak Tanya Lebih Lanjut?</p>
+      <p style="font-size:13px;color:var(--text3);margin-bottom:18px">Hubungi Ciknie terus untuk sebut harga dan pakej khas.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-hero-main" onclick="showSection('tempahan')">📋 Buat Tempahan</button>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20boleh%20saya%20tanya%20pasal%20harga%20katering?" target="_blank">
+          <button class="btn-hero-wa" style="display:inline-flex;align-items:center;gap:7px">
+            <svg style="width:18px;height:18px;fill:#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Ciknie
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEMPAHAN ===== -->
+<section id="tempahan" class="section">
+  <div class="container">
+    <div class="page-header">
+      <h1>Buat Tempahan</h1>
+      <p>Isi borang atau terus WhatsApp Ciknie</p>
+    </div>
+
+    <div id="booking-form-view">
+      <div class="booking-wrap">
+        <div>
+          <div class="form-card">
+            <h2>Borang Tempahan</h2>
+
+            <div class="form-step">
+              <div class="step-label">Maklumat Diri</div>
+              <div class="form-row">
+                <div class="form-group"><label>Nama Penuh *</label><input type="text" id="f-nama" placeholder="Nama penuh"></div>
+                <div class="form-group"><label>No. Telefon *</label><input type="tel" id="f-tel" placeholder="01x-xxxxxxxx"></div>
+              </div>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">Maklumat Majlis</div>
+              <div class="form-row">
+                <div class="form-group"><label>Tarikh Majlis *</label><input type="date" id="f-tarikh"></div>
+                <div class="form-group"><label>Masa *</label><input type="time" id="f-masa" value="12:00"></div>
+              </div>
+              <div class="form-group">
+                <label>Jenis Majlis *</label>
+                <select id="f-majlis">
+                  <option value="">-- Pilih --</option>
+                  <option>Kenduri Kahwin</option>
+                  <option>Pertunangan</option>
+                  <option>Aqiqah / Cukur Jambul</option>
+                  <option>Majlis Korporat</option>
+                  <option>Hari Jadi</option>
+                  <option>Rumah Terbuka</option>
+                  <option>Majlis Lain-lain</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Alamat Majlis *</label><textarea id="f-alamat" placeholder="No, Jalan, Taman, Bandar, Negeri"></textarea></div>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">Pilih Pakej</div>
+              <div class="pkg-select-grid">
+                <div class="pkg-sel-btn" id="ps-small" onclick="selPkg('small')">
+                  <div class="ps-name">100–200 Pack</div>
+                  <div class="ps-size">Pakej Kecil</div>
+                  <div class="ps-price">RM14</div>
+                </div>
+                <div class="pkg-sel-btn" id="ps-medium" onclick="selPkg('medium')">
+                  <div class="ps-name">300–500 Pack</div>
+                  <div class="ps-size">Pakej Sederhana</div>
+                  <div class="ps-price">RM13</div>
+                </div>
+                <div class="pkg-sel-btn" id="ps-large" onclick="selPkg('large')">
+                  <div class="ps-name">600–1000</div>
+                  <div class="ps-size">Pakej Besar</div>
+                  <div class="ps-price">RM12</div>
+                </div>
+              </div>
+              <div class="form-group"><label>Bilangan Pack *</label><input type="number" id="f-pek" placeholder="Masukkan bilangan pack" min="100" oninput="calcTotal()"></div>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">Jenis Nasi</div>
+              <div class="nasi-btns">
+                <div class="nasi-btn active" id="nb-standard" onclick="selNasi('standard')">
+                  <div class="nb-name">Nasi Hujan Panas / Nasi Putih</div>
+                  <div class="nb-price">Harga standard</div>
+                </div>
+                <div class="nasi-btn" id="nb-minyak" onclick="selNasi('minyak')">
+                  <div class="nb-name">Masi Minyak</div>
+                  <div class="nb-price">+RM2/pack</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">Add On</div>
+              <div class="addon-toggle-row">
+                <div class="at-info">
+                  <div class="at-name">👑 Makanan Beradap</div>
+                  <div class="at-desc">Udang 1 Set + Ikan 1 Ekor + Buah-Buahan 1 Set + Air 3 Balng Besar</div>
+                </div>
+                <div class="at-right">
+                  <span class="at-price">+RM400</span>
+                  <button class="toggle-sw" id="t-beradap" onclick="togAddon('beradap',400)"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-step">
+              <div class="step-label">Nota</div>
+              <div class="form-group"><label>Permintaan / Menu Tambahan (pilihan)</label><textarea id="f-nota" placeholder="Contoh: permintaan menu tambahan, keperluan khas..."></textarea></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div>
+          <div class="summary-card">
+            <div class="summary-header">
+              <h3>Ringkasan Tempahan</h3>
+              <p>Dikira secara automatik</p>
+            </div>
+            <div class="summary-body">
+              <div class="summary-line"><span class="sl-label">Pakej</span><span class="sl-val" id="s-pkg">Belum dipilih</span></div>
+              <div class="summary-line"><span class="sl-label">Jenis Nasi</span><span class="sl-val" id="s-nasi">Nasi Hujan Panas / Nasi Putih</span></div>
+              <div class="summary-line"><span class="sl-label">Bilangan Pack</span><span class="sl-val" id="s-pek">—</span></div>
+              <div class="summary-line"><span class="sl-label">Harga/Pack</span><span class="sl-val" id="s-harga">—</span></div>
+              <div class="summary-line"><span class="sl-label">Harga Asas</span><span class="sl-val" id="s-base">—</span></div>
+              <div class="summary-line"><span class="sl-label">Makanan Beradap</span><span class="sl-val" id="s-beradap">—</span></div>
+              <div class="summary-total">
+                <span class="st-label">Jumlah Anggaran</span>
+                <span class="st-val" id="s-total">—</span>
+              </div>
+              <div class="summary-note">
+                ✅ Semua Package termasuk percuma:<br>Air 2 Balang • Tissue • Plastic Sampah • Pinggan Mangkuk<br>
+                ✅ 300 Pack ke atas: Penjaga Catering percuma<br>
+                ❌ Harga tidak termasuk Khemah
+              </div>
+              <button class="btn-submit" onclick="submitBooking()">📋 Hantar Tempahan</button>
+              <a id="wa-quote-link" href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20nak%20buat%20tempahan%20katering." target="_blank">
+                <button class="btn-wa-book">
+                  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Terus WhatsApp Ciknie
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div id="success-view" style="display:none">
+      <div class="success-page">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">Tempahan Dihantar!</div>
+        <div class="success-sub">Terima kasih! Sila terus sahkan tempahan anda via WhatsApp supaya Ciknie dapat proses dengan cepat.</div>
+        <div class="ref-card">
+          <div class="ref-id" id="r-id">CCT-0001</div>
+          <div class="ref-grid">
+            <div class="ref-item"><div class="ri-label">Nama</div><div class="ri-val" id="r-nama">—</div></div>
+            <div class="ref-item"><div class="ri-label">Tarikh</div><div class="ri-val" id="r-tarikh">—</div></div>
+            <div class="ref-item"><div class="ri-label">Bilangan Pack</div><div class="ri-val" id="r-pek">—</div></div>
+            <div class="ref-item"><div class="ri-label">Jumlah Anggaran</div><div class="ri-val" id="r-total" style="color:var(--rose);font-weight:700;font-size:15px">—</div></div>
+          </div>
+        </div>
+        <div class="success-actions">
+          <a id="wa-confirm-link" href="#" target="_blank">
+            <button class="btn-wa-confirm">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Sahkan via WhatsApp Ciknie
+            </button>
+          </a>
+          <button class="btn-new" onclick="resetBooking()">Buat Tempahan Baru</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HUBUNGI ===== -->
+<section id="hubungi" class="section">
+  <div class="container">
+    <div class="page-header">
+      <h1>Hubungi Kami</h1>
+      <p>Ciknie sedia membantu anda</p>
+    </div>
+
+    <div class="contact-info-box">
+      <h3>📍 Maklumat Kenalan Ciknie Catering</h3>
+      <div class="cib-grid">
+        <div class="cib-item"><div class="cib-icon">📞</div><div class="cib-label">No. Telefon / WhatsApp</div><div class="cib-val">013-9216091</div></div>
+        <div class="cib-item"><div class="cib-icon">👩‍🍳</div><div class="cib-label">Nama</div><div class="cib-val">Ciknie</div></div>
+        <div class="cib-item"><div class="cib-icon">🕐</div><div class="cib-label">Waktu Operasi</div><div class="cib-val">7 hari seminggu</div></div>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#E7FBF0">💬</div>
+        <h3>WhatsApp</h3>
+        <p>Cara paling pantas! Chat terus dengan Ciknie untuk bertanya, dapatkan sebut harga atau buat tempahan.</p>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20ingin%20bertanya%20tentang%20katering." target="_blank">
+          <button class="contact-btn btn-wa-style">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat WhatsApp
+          </button>
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#FDF0EB">📞</div>
+        <h3>Telefon</h3>
+        <p>Hubungi terus Ciknie untuk berbincang keperluan katering majlis anda.</p>
+        <a href="tel:+60139216091">
+          <button class="contact-btn btn-call">📞 013-9216091</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- MESEJ PANTAS -->
+    <div style="background:var(--card);border-radius:14px;border:1px solid var(--border);padding:22px;margin-bottom:22px;box-shadow:var(--shadow)">
+      <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:var(--text);margin-bottom:14px">💬 Mesej Pantas WhatsApp</h3>
+      <div class="wa-quick-grid">
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20nak%20buat%20tempahan%20katering." target="_blank"><button class="wa-quick-btn">📋 Nak buat tempahan</button></a>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20boleh%20tahu%20harga%20pakej%20katering?" target="_blank"><button class="wa-quick-btn">💰 Tanya harga pakej</button></a>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20boleh%20tunjukkan%20senarai%20menu%20yang%20ada?" target="_blank"><button class="wa-quick-btn">🍽 Tanya pasal menu</button></a>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20boleh%20tanya%20pasal%20Add%20On%20Makanan%20Beradap%20RM400?" target="_blank"><button class="wa-quick-btn">👑 Tanya Makanan Beradap</button></a>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20berapa%20minimum%20pack%20untuk%20tempahan?" target="_blank"><button class="wa-quick-btn">❓ Tanya minimum pack</button></a>
+        <a href="https://wa.me/60139216091?text=Assalamualaikum%20Ciknie%2C%20saya%20ada%20pertanyaan%20am%20tentang%20katering." target="_blank"><button class="wa-quick-btn">📨 Pertanyaan am</button></a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-heading"><h2>Soalan Lazim</h2><div class="divider"></div></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="togFaq(this)"><span>Berapa harga pakej katering?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a">100–200 Pack: RM14/Pack (RM16 Nasi Minyak) | 300–500 Pack: RM13/Pack (RM15 Nasi Minyak) | 600–1000: RM12/Pack (RM14 Nasi Minyak)</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="togFaq(this)"><span>Apa yang termasuk dalam setiap package?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a">Semua package termasuk percuma: Air 2 Balang, Tissue, Plastic Sampah, dan Pinggan Mangkuk. Package 300 Pack ke atas juga dapat Penjaga Catering percuma.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="togFaq(this)"><span>Apa itu Add On Makanan Beradap RM400?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a">Makanan Beradap RM400 termasuk: Udang 1 Set, Ikan 1 Ekor, Buah-Buahan 1 Set, dan Air 3 Balng Besar. Ini adalah add on tambahan tidak kira bilangan pack.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="togFaq(this)"><span>Boleh request menu tambahan?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a">Ya! Menu Tambahan Bole Request. Hubungi Ciknie terus via WhatsApp untuk berbincang menu khas mengikut keperluan majlis anda.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="togFaq(this)"><span>Adakah harga termasuk khemah?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a">Tidak. Harga Tidak Termasuk Khemah. Sewa khemah perlu dibuat secara berasingan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="togFaq(this)"><span>Berapa minimum pack untuk tempah?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-a">Minimum tempahan adalah 100 Pack (Pakej Kecil 100–200 Pack).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+const PKG={
+  small:{name:'100–200 Pack',price:14,minyak:16},
+  medium:{name:'300–500 Pack',price:13,minyak:15},
+  large:{name:'600–1000',price:12,minyak:14}
+};
+let bState={pkg:null,nasi:'standard',beradap:false,counter:0};
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const order=['home','menu','harga','tempahan','hubungi'];
+  const i=order.indexOf(id);
+  if(i>=0) document.querySelectorAll('.nav-link')[i].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showMenuTab(tab,btn){
+  document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+
+function selectAndGo(pkg){selPkg(pkg);showSection('tempahan');}
+
+function selPkg(p){
+  bState.pkg=p;
+  document.querySelectorAll('.pkg-sel-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('ps-'+p).classList.add('active');
+  calcTotal();
+}
+
+function selNasi(t){
+  bState.nasi=t;
+  document.getElementById('nb-standard').classList.toggle('active',t==='standard');
+  document.getElementById('nb-minyak').classList.toggle('active',t==='minyak');
+  document.getElementById('s-nasi').textContent=t==='minyak'?'Masi Minyak':'Nasi Hujan Panas / Nasi Putih';
+  calcTotal();
+}
+
+function togAddon(name,price){
+  bState[name]=!bState[name];
+  document.getElementById('t-'+name).classList.toggle('on',bState[name]);
+  calcTotal();
+}
+
+function calcTotal(){
+  const pek=parseInt(document.getElementById('f-pek').value)||0;
+  const p=bState.pkg?PKG[bState.pkg]:null;
+  const pricePerPack=p?(bState.nasi==='minyak'?p.minyak:p.price):0;
+  const base=pek*pricePerPack;
+  const addon=bState.beradap?400:0;
+  const total=base+addon;
+  document.getElementById('s-pkg').textContent=p?p.name:'Belum dipilih';
+  document.getElementById('s-harga').textContent=pricePerPack?'RM'+pricePerPack+'/Pack':'—';
+  document.getElementById('s-pek').textContent=pek?pek+' Pack':'—';
+  document.getElementById('s-base').textContent=base?'RM'+base.toLocaleString():'—';
+  document.getElementById('s-beradap').textContent=bState.beradap?'RM400':'—';
+  document.getElementById('s-total').textContent=total?'RM'+total.toLocaleString():'—';
+  // Update WA link
+  const nama=document.getElementById('f-nama').value||'';
+  const tarikh=document.getElementById('f-tarikh').value||'';
+  const majlis=document.getElementById('f-majlis').value||'';
+  const tel=document.getElementById('f-tel').value||'';
+  const nota=document.getElementById('f-nota').value||'';
+  const msg=`Assalamualaikum%20Ciknie%2C%0A%0ASaya%20ingin%20buat%20tempahan%20katering%3A%0A%0ANama%3A%20${encodeURIComponent(nama)}%0ANo.%20Telefon%3A%20${encodeURIComponent(tel)}%0ATarikh%3A%20${tarikh}%0AJenis%20Majlis%3A%20${encodeURIComponent(majlis)}%0APakej%3A%20${p?encodeURIComponent(p.name):'%E2%80%94'}%0ABilangan%20Pack%3A%20${pek||'%E2%80%94'}%0AJenis%20Nasi%3A%20${bState.nasi==='minyak'?'Masi%20Minyak':'Nasi%20Hujan%20Panas%20%2F%20Nasi%20Putih'}%0AMakanan%20Beradap%3A%20${bState.beradap?'Ya%20(RM400)':'Tidak'}%0AJumlah%20Anggaran%3A%20${total?'RM'+total.toLocaleString():'%E2%80%94'}%0ANota%3A%20${encodeURIComponent(nota)}%0A%0ATerima%20kasih!`;
+  document.getElementById('wa-quote-link').href=`https://wa.me/60139216091?text=${msg}`;
+}
+
+function submitBooking(){
+  const nama=document.getElementById('f-nama').value.trim();
+  const tel=document.getElementById('f-tel').value.trim();
+  const tarikh=document.getElementById('f-tarikh').value;
+  const majlis=document.getElementById('f-majlis').value;
+  const pek=document.getElementById('f-pek').value;
+  const alamat=document.getElementById('f-alamat').value.trim();
+  const nota=document.getElementById('f-nota').value.trim();
+  if(!nama||!tel||!tarikh||!majlis||!pek||!alamat||!bState.pkg){
+    alert('Sila lengkapkan semua maklumat yang bertanda * termasuk pilih pakej.');return;
+  }
+  bState.counter++;
+  const id='CCT-'+String(bState.counter).padStart(4,'0');
+  const p=PKG[bState.pkg];
+  const pricePerPack=bState.nasi==='minyak'?p.minyak:p.price;
+  const total=parseInt(pek)*pricePerPack+(bState.beradap?400:0);
+  document.getElementById('r-id').textContent=id;
+  document.getElementById('r-nama').textContent=nama;
+  document.getElementById('r-tarikh').textContent=new Date(tarikh).toLocaleDateString('ms-MY',{day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('r-pek').textContent=pek+' Pack';
+  document.getElementById('r-total').textContent='RM'+total.toLocaleString();
+  const waMsg=`Assalamualaikum%20Ciknie%2C%0A%0ASaya%20telah%20isi%20borang%20tempahan%20online.%0A%0A*No.%20Rujukan%3A*%20${id}%0A*Nama%3A*%20${encodeURIComponent(nama)}%0A*No.%20Telefon%3A*%20${encodeURIComponent(tel)}%0A*Tarikh%20Majlis%3A*%20${new Date(tarikh).toLocaleDateString('ms-MY')}%0A*Jenis%20Majlis%3A*%20${encodeURIComponent(majlis)}%0A*Pakej%3A*%20${encodeURIComponent(p.name)}%0A*Bilangan%20Pack%3A*%20${pek}%20Pack%0A*Jenis%20Nasi%3A*%20${bState.nasi==='minyak'?'Masi%20Minyak':'Nasi%20Hujan%20Panas%20%2F%20Nasi%20Putih'}%0A*Makanan%20Beradap%3A*%20${bState.beradap?'Ya%20(RM400)':'Tidak'}%0A*Jumlah%20Anggaran%3A*%20RM${total.toLocaleString()}%0A*Alamat%3A*%20${encodeURIComponent(alamat)}%0A*Nota%3A*%20${encodeURIComponent(nota)||'%E2%80%94'}%0A%0AMohon%20pengesahan.%20Terima%20kasih!`;
+  document.getElementById('wa-confirm-link').href=`https://wa.me/60139216091?text=${waMsg}`;
+  document.getElementById('booking-form-view').style.display='none';
+  document.getElementById('success-view').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function resetBooking(){
+  bState={pkg:null,nasi:'standard',beradap:false,counter:bState.counter};
+  ['f-nama','f-tel','f-tarikh','f-pek','f-alamat','f-nota'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('f-masa').value='12:00';
+  document.getElementById('f-majlis').value='';
+  document.querySelectorAll('.pkg-sel-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('nb-standard').classList.add('active');
+  document.getElementById('nb-minyak').classList.remove('active');
+  document.getElementById('t-beradap').classList.remove('on');
+  ['s-pkg','s-pek','s-harga','s-base','s-beradap','s-total'].forEach(id=>document.getElementById(id).textContent='—');
+  document.getElementById('s-pkg').textContent='Belum dipilih';
+  document.getElementById('s-nasi').textContent='Nasi Hujan Panas / Nasi Putih';
+  document.getElementById('booking-form-view').style.display='block';
+  document.getElementById('success-view').style.display='none';
+}
+
+function togFaq(el){el.parentElement.classList.toggle('open');}
+</script>
+</body>
+</html>
